@@ -10,7 +10,7 @@ module SmtRails
     require 'smt_rails/engine'
   else
     require 'sprockets'
-    Sprockets.register_engine ".#{SmtRails.template_extension}", Tilt
+    Senv.register_mime_type Tilt.default_mime_type extensions: [".#{SmtRails.template_extension}"]
   end
 end
 

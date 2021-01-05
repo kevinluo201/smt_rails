@@ -10,7 +10,7 @@ module SmtRails
           env.register_mime_type 'text/html', extensions: ['.mustache'], charset: :html
           env.register_preprocessor 'text/html', Tilt
         else
-          env.register_engine(".#{SmtRails.template_extension}", Tilt)
+          env.register_mime_type Tilt.default_mime_type extensions: [".#{SmtRails.template_extension}"]
         end
       end
       app.config.assets.paths << SmtRails.template_base_path
